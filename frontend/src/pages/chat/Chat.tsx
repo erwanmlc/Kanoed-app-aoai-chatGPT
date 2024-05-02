@@ -80,9 +80,9 @@ const Chat = () => {
       && appStateContext?.state.isCosmosDBAvailable?.status !== CosmosDBStatus.NotConfigured
       && appStateContext?.state.chatHistoryLoadingState === ChatHistoryLoadingState.Fail
       && hideErrorDialog) {
-      let subtitle = `${appStateContext.state.isCosmosDBAvailable.status}. Please contact the site administrator.`
+      let subtitle = `${appStateContext.state.isCosmosDBAvailable.status}. Veuillez contacter l'administrateur de votre site.`
       setErrorMsg({
-        title: "Chat history is not enabled",
+        title: "L'historique de conversation n'est pas activé",
         subtitle: subtitle
       })
       toggleErrorDialog();
@@ -836,7 +836,7 @@ const Chat = () => {
               </Stack>
               <QuestionInput
                 clearOnSend
-                placeholder="Type a new question..."
+                placeholder="Taper une question..."
                 disabled={isLoading}
                 onSend={(question, id) => {
                   appStateContext?.state.isCosmosDBAvailable?.cosmosDB ? makeApiRequestWithCosmosDB(question, id) : makeApiRequestWithoutCosmosDB(question, id)

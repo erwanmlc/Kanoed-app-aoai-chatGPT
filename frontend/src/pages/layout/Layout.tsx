@@ -13,10 +13,10 @@ import styles from './Layout.module.css'
 const Layout = () => {
   const [isSharePanelOpen, setIsSharePanelOpen] = useState<boolean>(false)
   const [copyClicked, setCopyClicked] = useState<boolean>(false)
-  const [copyText, setCopyText] = useState<string>('Copy URL')
-  const [shareLabel, setShareLabel] = useState<string | undefined>('Share')
-  const [hideHistoryLabel, setHideHistoryLabel] = useState<string>('Hide chat history')
-  const [showHistoryLabel, setShowHistoryLabel] = useState<string>('Show chat history')
+  const [copyText, setCopyText] = useState<string>("Copier l'URL")
+  const [shareLabel, setShareLabel] = useState<string | undefined>('Partager')
+  const [hideHistoryLabel, setHideHistoryLabel] = useState<string>("Masquer l'historique")
+  const [showHistoryLabel, setShowHistoryLabel] = useState<string>("Montrer l'historique")
   const appStateContext = useContext(AppStateContext)
   const ui = appStateContext?.state.frontendSettings?.ui
 
@@ -27,7 +27,7 @@ const Layout = () => {
   const handleSharePanelDismiss = () => {
     setIsSharePanelOpen(false)
     setCopyClicked(false)
-    setCopyText('Copy URL')
+    setCopyText("Copier l'URL")
   }
 
   const handleCopyClick = () => {
@@ -41,7 +41,7 @@ const Layout = () => {
 
   useEffect(() => {
     if (copyClicked) {
-      setCopyText('Copied URL')
+      setCopyText('URL copiée')
     }
   }, [copyClicked])
 
@@ -51,12 +51,12 @@ const Layout = () => {
     const handleResize = () => {
       if (window.innerWidth < 480) {
         setShareLabel(undefined)
-        setHideHistoryLabel('Hide history')
-        setShowHistoryLabel('Show history')
+        setHideHistoryLabel("Masquer l'historique")
+        setShowHistoryLabel("Montrer l'historique")
       } else {
-        setShareLabel('Share')
-        setHideHistoryLabel('Hide chat history')
-        setShowHistoryLabel('Show chat history')
+        setShareLabel('Partager')
+        setHideHistoryLabel("Masquer l'historique")
+        setShowHistoryLabel("Montrer l'historique")
       }
     }
 
